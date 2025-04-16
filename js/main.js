@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
 const maxRadius = 300;
+let showLevelsNumbers = false;
 
 let criterios = [
     "Asumir riesgos", "Autoconocimiento", "Iniciativa",
@@ -26,11 +27,34 @@ function drawDiana() {
     const spacing = maxRadius / niveles;
 
     for (let i = 1; i <= niveles; i++) {
+        const radius = spacing * i;
+
+        // Dibuja el círculo
         ctx.beginPath();
-        ctx.arc(centerX, centerY, spacing * i, 0, Math.PI * 2);
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
         ctx.strokeStyle = "#ccc";
         ctx.stroke();
+
+        // Mostrar número del nivel en cada sector si está activado
+        if (showLevelsNumbers) {
+            const angleStep = (2 * Math.PI) / criterios.length;
+
+            criterios.forEach((_, j) => {
+                const angle = j * angleStep + angleStep / 2;
+
+                const labelRadius = radius - spacing / 2;
+                const x = centerX + Math.cos(angle) * labelRadius;
+                const y = centerY + Math.sin(angle) * labelRadius;
+
+                ctx.fillStyle = "#000"; // Color negro
+                ctx.font = "bold 16px sans-serif"; // Negrita y más grande
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText(i, x, y);
+            });
+        }
     }
+
 
     const angleStep = (2 * Math.PI) / criterios.length;
 
@@ -198,3 +222,7 @@ function downloadImage() {
 
 updateInputs();
 drawDiana();
+document.getElementById("showLevelsNumbers").addEventListener("change", function () {
+    showLevelsNumbers = this.checked;
+    drawDiana();
+});

@@ -17,6 +17,7 @@ La **Diana de Autoevaluación Circular** permite al usuario evaluarse en diferen
 - Posibilidad de **agregar o eliminar criterios**.
 - Selección del **número de niveles** (por defecto 4).
 - Activar o desactivar el **color en los títulos** de los criterios.
+- Nueva opción para **mostrar u ocultar los números de nivel en la diana**.
 
 ### 🔹 Visualización dinámica en Canvas
 - Representación circular de los criterios.

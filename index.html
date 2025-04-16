@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Diana de Autoevaluación Circular</title>
+
     <!-- Bootstrap 5 -->
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -13,7 +14,6 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-
     <!-- Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="./css/styles.css">
@@ -44,8 +44,14 @@
 
     <div class="mb-3">
         <label for="showColorInTitles" class="form-label">Mostrar color en los títulos:</label>
-        <input type="checkbox" id="showColorInTitles" onchange="drawDiana()" />
+        <input type="checkbox" id="showColorInTitles" />
         <span class="ms-2">Marcar para usar el color del criterio en los títulos del gráfico.</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="showLevelsNumbers" class="form-label">Mostrar números de niveles:</label>
+        <input type="checkbox" id="showLevelsNumbers" />
+        <span class="ms-2">Marcar para mostrar los números en los círculos de la diana.</span>
     </div>
 
     <div class="mb-3">
@@ -59,11 +65,10 @@
         <button class="btn btn-success btn-download" onclick="downloadImage()">Descargar imagen</button>
     </div>
 </div>
+
+<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<!-- Toastr JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 <script src="./js/main.js"></script>
-
 </body>
 </html>
